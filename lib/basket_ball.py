@@ -182,3 +182,133 @@ def game_dict():
             ]
         }
     }
+
+    ### `num_points_per_game()`
+
+    #Build a function, `num_points_per_game()` that takes in an argument of a
+    #player's name and returns the number of points per game for that player.
+
+def num_points_per_game(player_name):
+    pass
+    game_data = game_dict()
+    
+    for team in ["home", "away"]:
+        for player in game_data[team]['players']:
+            if player['name'] == player_name:
+                return player['points_per_game']
+    return None
+
+def player_age(player_name):
+    game_data = game_dict()
+
+    for team in ["home", "away"]:
+        for player in game_data[team]['players']:
+            if player['name'] == player_name:
+                return player['age']
+    return None
+   
+   ### `team_colors()`
+
+    # Build a function, `team_colors()`, that takes in an argument of the team name
+    # and returns a `list` of that team's colors.
+
+def team_colors(team_name):
+    game_data = game_dict()
+
+    for team in ["home", "away"]:
+        if game_data[team]['team_name'] == team_name:
+                return game_data[team]['colors']
+    return None
+
+
+    # ### `team_names()`
+
+    # Build a function, `team_names()`, that operates on the dictionary to return a
+    # `list` of the team names.
+def team_names():
+    game_data = game_dict()
+    teams = ["home", "away"]
+    return [game_data[team]['team_name'] for team in teams]
+
+
+    ### `player_numbers()`
+
+    # Build a function, `player_numbers()`, that takes in an argument of a team name
+    # and returns a `list` of the jersey numbers for that team.
+def player_numbers(team_name):
+    game_data = game_dict()
+    
+    for team in ["home", "away"]:
+        if game_data[team]["team_name"] == team_name:
+            return [player["number"] for player in game_data[team]["players"]]
+    return None
+    
+    
+    
+    ### `player_stats()`
+
+    # Build a function, `player_stats()`, that takes in an argument of a player's name
+    # and returns a dictionary of that player's stats.
+    
+    
+def player_stats(player_name):
+    game_data = game_dict()
+
+    for team in ["home", "away"]:
+        for player in game_data[team]["players"]:
+            if player["name"] == player_name:
+                return player
+    return None
+
+
+
+# that will calculate the
+# average number of rebounds for players who wear a particular shoe brand. The
+# function should print out a message for each brand using the following format:
+
+# First, create a dictionary that will keep track of the shoe brands along with a
+# list of the numbers of rebounds for all the players who wear that brand of shoe.
+# An entry in the dictionary may look something like this:
+
+# **Hint**: As you iterate through the players in `game_dict()`, 
+
+#you will need to
+# check whether the player's shoe brand is already in the dictionary. If it isn't,
+# you will add the brand as a key, and a list containing the current player's
+# rebounds as the value. If it is already present, you will simply add the
+# rebounds to the array.
+def average_rebounds_by_shoe_brand():
+    pass
+    game_data = game_dict()
+    shoe_brands = {}
+
+    for team in ["home", "away"]:
+        for player in game_data[team]['players']:
+            brand = player["shoe_brand"]
+            rebounds = player["rebounds_per_game"]
+
+            if brand in shoe_brands:
+                shoe_brands[brand].append(rebounds)
+            else:
+                shoe_brands[brand] = [rebounds]
+
+    for brand, rebounds_list in shoe_brands.items():
+        average_rebounds = sum(rebounds_list) / len(rebounds_list)  # Calculate the average
+        print(f'"{brand}": {average_rebounds:.2f}')
+        
+  
+
+
+
+
+
+            # Add the player's shoe_brand as a key in the shoe_brand dict and  a list containing the current player's
+            # rebounds as the value
+
+            # The function should print out a message for each brand using the following format:
+            
+            
+            # use in to see if the shoe_brand is already in the shoe_brand dictionary
+            # use values() to get a list of all the rebounds
+
+
